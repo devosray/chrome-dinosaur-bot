@@ -9,13 +9,9 @@ using namespace std;
 int main()
 {
 	ScreenContext screen;
+	ScreenshotContext* screenshot = screen.createScreenshotContext(0, 0, 10, 10);
 
-	int x, y;
-	while (true)
-	{
-		screen.getMouseLocationRoot(x, y);
-		printf("%d:%d\n", x, y);
-	}
+	delete screenshot;
 
 	return 0;
 }

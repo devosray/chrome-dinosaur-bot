@@ -11,12 +11,13 @@
  * lower level API's to get the screenshot.
  *
  * Provides methods to access the color of a pixel on the screenshot and
- * to get the mouse pointer relative to the window or screenshot.
+ * to get the mouse pointer relative to the screenshot.
  */
 
 class ScreenshotContext
 {
 	private:
+		const ScreenContext* screenContext;
 		GdkPixbuf* screenshot;
 
 		int x;
@@ -30,7 +31,7 @@ class ScreenshotContext
 		 * Create a new ScreenShot context starting at x and y (top left corner)
 		 * with a width and a height.
 		 */
-		ScreenshotContext(ScreenContext* context, int x, int y, int width, int height);
+		ScreenshotContext(const ScreenContext* context, int x, int y, int width, int height);
 
 		/*
 		 * Get pixel color on screenshot relative to the screenshot itself.

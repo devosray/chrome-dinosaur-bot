@@ -1,6 +1,7 @@
 #include <gdk/gdk.h>
 
 #include "ScreenContext.h"
+#include "ScreenshotContext.h"
 
 ScreenContext::ScreenContext()
 {
@@ -23,6 +24,12 @@ ScreenContext::ScreenContext()
 	this->mouse_device = gdk_seat_get_pointer(this->default_seat);
 	g_assert(mouse_device != 0);
 
+}
+
+ScreenshotContext* ScreenContext::createScreenshotContext(int x, int y, int width, int height)
+{
+	ScreenshotContext* screenshot = new ScreenshotContext(this, x, y, width, height);
+	return screenshot;
 }
 
 void ScreenContext::getMouseLocationRoot(int &x, int &y)
