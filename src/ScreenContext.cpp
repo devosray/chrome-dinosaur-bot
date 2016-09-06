@@ -14,14 +14,18 @@ ScreenContext::ScreenContext()
 	this->default_window = gdk_screen_get_root_window(this->default_screen);
 	g_assert(default_window != 0);
 
-	this->defualt_display = gdk_screen_get_display(this->default_screen);
+	this->defualt_display = gdk_display_get_default();
 	g_assert(defualt_display != 0);
 
-	this->default_seat = gdk_display_get_default_seat(this->defualt_display);
-	g_assert(default_seat != 0);
+	//this->default_seat = gdk_display_get_default_seat(this->defualt_display);
+	//g_assert(default_seat != 0);
+
+	this->device_manager = gdk_display_get_device_manager(this->defualt_display);
+	g_assert(device_manager != 0);
 
 	// Finally get the mouse device
-	this->mouse_device = gdk_seat_get_pointer(this->default_seat);
+	//this->mouse_device = gdk_seat_get_pointer(this->default_seat);	
+	this->mouse_device = gdk_device_manager_get_client_pointer(this->device_manager);
 	g_assert(mouse_device != 0);
 
 }

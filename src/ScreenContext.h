@@ -20,7 +20,8 @@ class ScreenContext
 		GdkWindow*  default_window;
 		GdkDisplay* defualt_display;
 
-		GdkSeat* default_seat;
+		//GdkSeat* default_seat;
+		GdkDeviceManager* device_manager;
 		GdkDevice* mouse_device;
 		
 
