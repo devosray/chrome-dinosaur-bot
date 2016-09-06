@@ -27,3 +27,10 @@
 *.exe
 *.out
 *.app
+
+# YouCompleteMeConfig
+.ycm_extra_conf.py
+__pycache__
+
+# Vim swap files
+*.swp
